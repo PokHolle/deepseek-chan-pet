@@ -312,6 +312,11 @@ Windows 默认定时器精度约 15.6ms，会把 60 帧压到约 56，所以桌�
 
 ## 11. 版本
 
+- **v1.3.5b · 2026-10-11**
+  - 修 bug：用桌面图标（pythonw）启动时会弹出一堆终端黑框。
+    原因是 pythonw 没有控制台，它启动的控制台子进程（ffmpeg 每换一个动作就起一个、
+    读 AI 回答的 node、启动 DSH、重新切图）会各自分配一个新控制台窗口；
+    现在所有子进程都加了 `creationflags=CREATE_NO_WINDOW`（见 pet_core.NO_WINDOW）
 - **v1.3.5 · 2026-10-11**
   - 去掉偶尔飘出来的**爱心**和**十字星**：`spawn()` 里过滤 heart / sparkle / star 三种（音符、Zzz、汗滴保留）；
     配置项 `deco_effects`（默认 false）可以再开回来
