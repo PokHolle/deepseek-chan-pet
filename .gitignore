@@ -1,0 +1,7 @@
+data/
+logs/
+__pycache__/
+*.pyc
+runtime/ffmpeg.exe
+assets/anim/**/*.webm
+dist/
